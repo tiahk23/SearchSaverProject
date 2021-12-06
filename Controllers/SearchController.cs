@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace SearchSaver.Controllers
 {
-    [Route("/search")]
     public class SearchController : Controller
     {
         [HttpGet]
@@ -17,9 +16,11 @@ namespace SearchSaver.Controllers
 
         
         [HttpPost]
-        public IActionResult Results(string product = "TV")
+        [Route("/search")]
+        public IActionResult Results(string product)
         {
-            return Content("<h1>Seach results for " + product + "!<h1>", "text/html");
+            ViewBag.searchedProduct = product;
+            return View();
         }
     }
 }
