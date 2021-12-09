@@ -1,0 +1,17 @@
+﻿<h1>Avalible TVs</h1>
+
+<p>
+    <a asp-controller="TV" asp-action="Add">Add TV</a>
+</p>
+
+@if (ViewBag.tvs.Count == 0)
+{
+    <p>No TV's yet.</p>
+}
+
+<ul>
+    @foreach(string tv in ViewBag.tvs)
+            {
+                <li>@tv</li>
+            }
+</ul>
