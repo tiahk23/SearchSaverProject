@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SearchSaver.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,7 @@ namespace SearchSaver.Controllers
     public class TVController : Controller
     {
 
-        static private List<string> TVS = new List<string>();
-
+        static private List<TV> TVS = new List<TV>();
         [HttpGet]
         public IActionResult Index()
         {
@@ -26,9 +26,9 @@ namespace SearchSaver.Controllers
 
         [HttpPost]
         [Route("/TV/Add")]
-        public IActionResult NewTV(string name)
+        public IActionResult NewTV(string name, string description, string price)
         {
-            TVS.Add(name);
+            TVS.Add(new TV(name, description, price));
             return Redirect("/TV");
         }
     }

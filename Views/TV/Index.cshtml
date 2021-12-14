@@ -8,10 +8,27 @@
 {
     <p>No TV's yet.</p>
 }
-
-<ul>
-    @foreach(string tv in ViewBag.tvs)
-            {
-                <li>@tv</li>
-            }
-</ul>
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Brand
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+        @foreach (var tv in ViewBag.tvs)
+         {
+            <tr>
+                <td>@tv.Name</td>
+                <td>$@tv.Price</td>
+                <td>@tv.Description</td>
+            </tr>
+         }
+    </table>
+}
