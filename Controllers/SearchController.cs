@@ -20,7 +20,16 @@ namespace SearchSaver.Controllers
         public IActionResult Results(string product)
         {
             ViewBag.searchedProduct = product;
-            return View();
+            if(product.ToLower() == "tv")
+            {
+
+                return Redirect("/tv");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
 
     }

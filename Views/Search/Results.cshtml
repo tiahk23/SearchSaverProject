@@ -7,8 +7,10 @@ else
 {
     if (ViewBag.searchedProduct.ToLower() == "tv")
     {
-        <h1>Displaying results for @ViewBag.searchedProduct.</h1>
-
+        <h1 >Displaying results for @ViewBag.searchedProduct.</h1>
+        
+        <a class="nav-link text-dark" asp-area="" asp-controller="TV" asp-action="Index">Avalible TVs</a>
+        
     }
     else
     {
