@@ -14,7 +14,7 @@ namespace SearchSaver.Controllers
             return View();
         }
 
-        
+
         [HttpPost]
         [Route("/search")]
         public IActionResult Results(string product)
@@ -22,5 +22,6 @@ namespace SearchSaver.Controllers
             ViewBag.searchedProduct = product;
             return View();
         }
+
     }
 }

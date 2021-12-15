@@ -26,9 +26,9 @@ namespace SearchSaver.Controllers
 
         [HttpPost]
         [Route("/TV/Add")]
-        public IActionResult NewTV(string description, string price, string brand)
+        public IActionResult NewTV(string store, string description, string price, string brand)
         {
-            TVData.Add(new TV(description, price, brand));
+            TVData.Add(new TV(store, description, price, brand));
             return Redirect("/TV");
         }
 

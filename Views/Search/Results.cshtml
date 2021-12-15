@@ -1,9 +1,17 @@
 ﻿
- @if(ViewBag.searchedProduct == null || ViewBag.searchedProduct == "")
- {
-     <h1>Search Empty</h1>
- }
- else
- {
-      <h1>You have searched for @ViewBag.searchedProduct !</h1>
- }
+@if (ViewBag.searchedProduct == null || ViewBag.searchedProduct == "")
+{
+    <h1>Search Empty</h1>
+}
+else
+{
+    if (ViewBag.searchedProduct.ToLower() == "tv")
+    {
+        <h1>Displaying results for @ViewBag.searchedProduct.</h1>
+
+    }
+    else
+    {
+        <h1>The item you have searched for has not been added to our system yet! Thank you for being paitent!</h1>
+    }
+}
