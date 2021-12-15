@@ -1,0 +1,14 @@
+﻿<h1>Delete TV's</h1>
+
+<form method="post">
+    @foreach (var tv in ViewBag.tvs)
+    {
+        <div class="form-group">
+            <label>
+                <span>@tv.Brand</span>
+                <input type="checkbox" name="tvIds" value="@tv.Id" />
+            </label>
+        </div>
+    }
+    <input type="submit" value="Delete selected TVs" class="btn btn-danger" />
+</form>

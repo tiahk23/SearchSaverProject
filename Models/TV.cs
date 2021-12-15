@@ -7,19 +7,24 @@ namespace SearchSaver.Models
 {
     public class TV
     {
-        public string Name { get; set; }
         public string Description { get; set; }
         public string Price { get; set; }
-        public TV(string name, string description, string price)
+        public string Brand { get; set; }
+
+        public int Id { get; }
+        static private int nextId = 1;
+        public TV(string description, string price, string brand)
         {
-            Name = name;
             Description = description;
             Price = price;
+            Brand = brand;
+            Id = nextId;
+            nextId++;
         }
 
         public override string ToString()
         {
-            return Name;
+            return Brand;
         }
     }
 }

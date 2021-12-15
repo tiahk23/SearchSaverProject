@@ -3,6 +3,9 @@
 <p>
     <a asp-controller="TV" asp-action="Add">Add TV</a>
 </p>
+<p>
+    <a asp-controller="TV" asp-action="Delete">Delete TV</a>
+</p>
 
 @if (ViewBag.tvs.Count == 0)
 {
@@ -25,7 +28,7 @@ else
         @foreach (var tv in ViewBag.tvs)
          {
             <tr>
-                <td>@tv.Name</td>
+                <td>@tv.Brand</td>
                 <td>$@tv.Price</td>
                 <td>@tv.Description</td>
             </tr>
