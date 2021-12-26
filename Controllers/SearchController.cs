@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SearchSaver.Data;
 using SearchSaver.Models;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,11 @@ namespace SearchSaver.Controllers
 {
     public class SearchController : Controller
     {
-        public static List<Search> Searches = new List<Search>();
+
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.searches = Searches;
+            ViewBag.searches = SearchData.GetAll();
 
             return View();
         }
@@ -24,14 +25,13 @@ namespace SearchSaver.Controllers
         public IActionResult Results(string product)
         {
             ViewBag.searchedProduct = product;
-            if(product.ToLower() == "tv")
+            if (product == "")
             {
-
-                return Redirect("/tv");
+                return View();
             }
             else
             {
-                return View();
+                return Redirect("/product");
             }
             
         }
