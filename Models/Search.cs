@@ -12,11 +12,14 @@ namespace SearchSaver.Models
 
         public int SearchID { get;  }
         private static int nextSearchId = 1;
-        public Search(string searchQuery)
+        public Search()
         {
-            SearchQuery = searchQuery;
             SearchID = nextSearchId;
             nextSearchId++;
+        }
+        public Search(string searchQuery): this()
+        {
+            SearchQuery = searchQuery;
         }
 
         public override string ToString()

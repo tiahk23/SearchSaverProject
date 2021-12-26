@@ -26,9 +26,9 @@ namespace SearchSaver.Controllers
 
         [HttpPost]
         [Route("/Product/Add")]
-        public IActionResult NewProduct(string store, string description, string price, string brand)
+        public IActionResult NewProduct(Product newProduct)
         {
-            ProductData.Add(new Product(store, description, price, brand));
+            ProductData.Add(newProduct);
             return Redirect("/Product");
         }
 

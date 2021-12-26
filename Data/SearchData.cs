@@ -36,5 +36,7 @@ namespace SearchSaver.Data
             Searches.Remove(id);
         }
 
+
+
     }
 }

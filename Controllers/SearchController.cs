@@ -22,18 +22,25 @@ namespace SearchSaver.Controllers
 
         [HttpPost]
         [Route("/search")]
-        public IActionResult Results(string product)
+        public IActionResult Results(Product newProduct, Search newSearch)
         {
-            ViewBag.searchedProduct = product;
-            if (product == "")
-            {
-                return View();
-            }
-            else
+            ViewBag.searchedProduct = newSearch;
+            if (newProduct.Category == newSearch.ToString())
             {
                 return Redirect("/product");
             }
+            else
+            {
+                return View();
+            }
             
+        }
+
+        public IActionResult Delete()
+        {
+            ViewBag.searches = SearchData.GetAll();
+
+            return View();
         }
 
     }

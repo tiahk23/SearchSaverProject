@@ -11,17 +11,22 @@ namespace SearchSaver.Models
         public string Description { get; set; }
         public string Price { get; set; }
         public string Brand { get; set; }
+        public string Category { get; set; }
 
         public int Id { get; }
         static private int nextId = 1;
-        public Product(string store, string description, string price, string brand)
+        public Product()
+        {
+            Id = nextId;
+            nextId++;
+        }
+        public Product(string store, string description, string price, string brand, string category): this()
         {
             Store = store;
             Description = description;
             Price = price;
             Brand = brand;
-            Id = nextId;
-            nextId++;
+            Category = category;
         }
 
         public override string ToString()
