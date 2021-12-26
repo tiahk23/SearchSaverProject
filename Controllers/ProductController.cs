@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace SearchSaver.Controllers
 {
-    public class TVController : Controller
+    public class ProductController : Controller
     {
 
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.tvs = TVData.GetAll();
+            ViewBag.products = ProductData.GetAll();
             return View();
         }
 
@@ -25,27 +25,27 @@ namespace SearchSaver.Controllers
         }
 
         [HttpPost]
-        [Route("/TV/Add")]
-        public IActionResult NewTV(string store, string description, string price, string brand)
+        [Route("/Product/Add")]
+        public IActionResult NewProduct(string store, string description, string price, string brand)
         {
-            TVData.Add(new TV(store, description, price, brand));
-            return Redirect("/TV");
+            ProductData.Add(new Product(store, description, price, brand));
+            return Redirect("/Product");
         }
 
         public IActionResult Delete()
         {
-            ViewBag.tvs = TVData.GetAll();
+            ViewBag.products = ProductData.GetAll();
             return View();
         }
 
         [HttpPost]
-        public IActionResult Delete(int[] tvIds)
+        public IActionResult Delete(int[] productIds)
         {
-            foreach(int tvId in tvIds)
+            foreach(int productId in productIds)
             {
-                TVData.Remove(tvId);
+                ProductData.Remove(productId);
             }
-            return Redirect("/TV");
+            return Redirect("/Product");
         }
     }
 }

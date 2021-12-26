@@ -1,0 +1,40 @@
+﻿<h1>Avalible Products</h1>
+
+@if (ViewBag.products.Count == 0)
+{
+    <p>No Products yet.</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Store
+            </th>
+            <th>
+                Brand
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+        @foreach (var product in ViewBag.products)
+        {
+            <tr>
+                <td>@product.Store</td>
+                <td>@product.Brand</td>
+                <td>$@product.Price</td>
+                <td>@product.Description</td>
+            </tr>
+        }
+    </table>
+}
+<p>
+    <a asp-controller="Product" asp-action="Add">Add Product</a>
+</p>
+<p>
+    <a asp-controller="Product" asp-action="Delete">Delete Product</a>
+</p>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SearchSaver.Models
 {
-    public class TV
+    public class Product
     {
         public string Store { get; set; }
         public string Description { get; set; }
@@ -14,7 +14,7 @@ namespace SearchSaver.Models
 
         public int Id { get; }
         static private int nextId = 1;
-        public TV(string store, string description, string price, string brand)
+        public Product(string store, string description, string price, string brand)
         {
             Store = store;
             Description = description;

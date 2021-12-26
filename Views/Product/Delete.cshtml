@@ -1,0 +1,14 @@
+﻿<h1>Delete Products</h1>
+
+<form method="post">
+    @foreach (var product in ViewBag.products)
+    {
+        <div class="form-group">
+            <label>
+                <span>@product.Brand</span>
+                <input type="checkbox" name="productIds" value="@product.Id" />
+            </label>
+        </div>
+    }
+    <input type="submit" value="Delete selected Products" class="btn btn-danger" />
+</form>

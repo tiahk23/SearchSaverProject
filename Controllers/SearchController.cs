@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SearchSaver.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,12 @@ namespace SearchSaver.Controllers
 {
     public class SearchController : Controller
     {
+        public static List<Search> Searches = new List<Search>();
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.searches = Searches;
+
             return View();
         }
 
