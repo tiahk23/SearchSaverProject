@@ -14,9 +14,9 @@ namespace SearchSaver.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.searches = SearchData.GetAll();
+            List<Search> searches = new List<Search>(SearchData.GetAll());
 
-            return View();
+            return View(searches);
         }
 
 
