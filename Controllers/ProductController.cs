@@ -29,16 +29,21 @@ namespace SearchSaver.Controllers
         [HttpPost]
         public IActionResult Add(AddProductViewModel addProdutViewModel)
         {
-            Product newProduct = new Product
+            if (ModelState.IsValid)
             {
-                Store = addProdutViewModel.Store,
-                Brand = addProdutViewModel.Brand,
-                Category = addProdutViewModel.Category,
-                Price = addProdutViewModel.Price,
-                Description = addProdutViewModel.Description
-            };
-            ProductData.Add(newProduct);
-            return Redirect("/Product");
+                Product newProduct = new Product
+                {
+                    Store = addProdutViewModel.Store,
+                    Brand = addProdutViewModel.Brand,
+                    Category = addProdutViewModel.Category,
+                    Price = addProdutViewModel.Price,
+                    Description = addProdutViewModel.Description
+                };
+                ProductData.Add(newProduct);
+
+                return Redirect("/Product");
+            }
+            return View(addProdutViewModel);
         }
 
         public IActionResult Delete()
