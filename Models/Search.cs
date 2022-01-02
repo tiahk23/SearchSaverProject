@@ -10,14 +10,11 @@ namespace SearchSaver.Models
         public string SearchQuery { get; set; }
         private DateTime DateandTime { get; set; }
 
-        public int SearchID { get;  }
-        private static int nextSearchId = 1;
+        public int SearchID { get; set; }
         public Search()
         {
-            SearchID = nextSearchId;
-            nextSearchId++;
         }
-        public Search(string searchQuery): this()
+        public Search(string searchQuery)
         {
             SearchQuery = searchQuery;
         }

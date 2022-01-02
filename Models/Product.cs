@@ -13,14 +13,11 @@ namespace SearchSaver.Models
         public string Brand { get; set; }
         public string Category { get; set; }
 
-        public int Id { get; }
-        static private int nextId = 1;
+        public int Id { get; set; }
         public Product()
         {
-            Id = nextId;
-            nextId++;
         }
-        public Product(string store, string description, string price, string brand, string category): this()
+        public Product(string store, string description, string price, string brand, string category)
         {
             Store = store;
             Description = description;
