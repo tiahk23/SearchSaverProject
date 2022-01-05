@@ -10,6 +10,12 @@ namespace SearchSaver.Controllers
 {
     public class SearchController : Controller
     {
+        private ApplicationDbContext context;
+
+        public SearchController(ApplicationDbContext dbContext)
+        {
+            context = dbContext;
+        }
 
         [HttpGet]
         public IActionResult Index()

@@ -11,6 +11,12 @@ namespace SearchSaver.Controllers
 {
     public class ProductController : Controller
     {
+        private ApplicationDbContext context;
+
+        public ProductController(ApplicationDbContext dbContext)
+        {
+            context = dbContext;
+        }
 
         [HttpGet]
         public IActionResult Index()
