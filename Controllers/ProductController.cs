@@ -21,7 +21,7 @@ namespace SearchSaver.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            List<Product> products = new List<Product>(ProductData.GetAll());
+            List<Product> products = context.Products.ToList();
             return View(products);
         }
 
@@ -45,7 +45,7 @@ namespace SearchSaver.Controllers
                     Price = addProdutViewModel.Price,
                     Description = addProdutViewModel.Description
                 };
-                ProductData.Add(newProduct);
+                context.Products.Add(newProduct);
 
                 return Redirect("/Product");
             }
@@ -54,17 +54,20 @@ namespace SearchSaver.Controllers
 
         public IActionResult Delete()
         {
-            ViewBag.products = ProductData.GetAll();
+            ViewBag.products = context.Products.ToList();
             return View();
         }
 
         [HttpPost]
         public IActionResult Delete(int[] productIds)
         {
-            foreach(int productId in productIds)
+
+            foreach(var productId in productIds)
             {
-                ProductData.Remove(productId);
+                Product newProduct = context.Products.Find(productId);
+                context.Products.Remove(newProduct);
             }
+            context.SaveChanges();
             return Redirect("/Product");
         }
     }

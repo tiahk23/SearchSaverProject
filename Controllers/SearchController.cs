@@ -20,7 +20,7 @@ namespace SearchSaver.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            List<Search> searches = new List<Search>(SearchData.GetAll());
+            List<Search> searches = context.Searches.ToList();
 
             return View(searches);
         }
@@ -42,12 +42,13 @@ namespace SearchSaver.Controllers
             
         }
 
-        public IActionResult Delete()
+        /*public IActionResult Delete()
         {
             ViewBag.searches = SearchData.GetAll();
-
+            Search newSearch = context.Searches.Find();
+            context.Products.Remove(newProduct);
             return View();
-        }
+        }*/
 
     }
 }
