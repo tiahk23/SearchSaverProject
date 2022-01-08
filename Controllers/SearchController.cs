@@ -10,9 +10,9 @@ namespace SearchSaver.Controllers
 {
     public class SearchController : Controller
     {
-        private ApplicationDbContext context;
+        private ServiceDbContext context;
 
-        public SearchController(ApplicationDbContext dbContext)
+        public SearchController(ServiceDbContext dbContext)
         {
             context = dbContext;
         }

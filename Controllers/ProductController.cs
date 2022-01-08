@@ -11,9 +11,9 @@ namespace SearchSaver.Controllers
 {
     public class ProductController : Controller
     {
-        private ApplicationDbContext context;
+        private ServiceDbContext context;
 
-        public ProductController(ApplicationDbContext dbContext)
+        public ProductController(ServiceDbContext dbContext)
         {
             context = dbContext;
         }

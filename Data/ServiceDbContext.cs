@@ -7,12 +7,12 @@ using System.Text;
 
 namespace SearchSaver.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ServiceDbContext : IdentityDbContext
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Search> Searches { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ServiceDbContext(DbContextOptions<ServiceDbContext> options)
             : base(options)
         {
         }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchSaver", "SearchSaver.csproj", "{BC6A1686-CF37-4DF4-8ACE-CF5136A5BC75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchSaver", "SearchSaver.csproj", "{BC6A1686-CF37-4DF4-8ACE-CF5136A5BC75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
