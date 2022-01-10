@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SearchSaver.Data;
 using SearchSaver.Models;
+using SearchSaver.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,25 +22,32 @@ namespace SearchSaver.Controllers
         public IActionResult Index()
         {
             List<Search> searches = context.Searches.ToList();
-
+            context.SaveChanges();
             return View(searches);
         }
 
+        [HttpGet]
+        public IActionResult Add()
+        {
+            AddSearchViewModel addSearchViewModel = new AddSearchViewModel();
+            return View(addSearchViewModel);
+        }
 
         [HttpPost]
         [Route("/search")]
-        public IActionResult Results(Product newProduct, Search newSearch)
+        public IActionResult Results(AddSearchViewModel addSearchViewModel)
         {
-            ///ToDo: add a foreach loop to display specific products
-            ViewBag.searchedProduct = newSearch;
-            if (newProduct.Category == newSearch.ToString())
+            if (ModelState.IsValid)
             {
-                return Redirect("/product");
+                Search newSearch = new Search
+                {
+                    SearchQuery = addSearchViewModel.SearchQuery
+                };
+                context.Searches.Add(newSearch);
+                context.SaveChanges();
+                return Redirect("/Product");
             }
-            else
-            {
-                return View();
-            }
+            return View(addSearchViewModel);
             
         }
 

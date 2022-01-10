@@ -8,7 +8,7 @@ namespace SearchSaver.Models
     public class Search
     {
         public string SearchQuery { get; set; }
-        private DateTime DateandTime { get; set; }
+        //private DateTime DateandTime { get; set; }
 
         public int SearchID { get; set; }
         public Search()

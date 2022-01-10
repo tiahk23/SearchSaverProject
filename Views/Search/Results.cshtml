@@ -1,4 +1,6 @@
-﻿
+﻿@using SearchSaver.ViewModels
+@model AddSearchViewModel;
+
 @if (ViewBag.searchedProduct == null || ViewBag.searchedProduct == "")
 {
     <h1>Search Empty</h1>
@@ -7,10 +9,10 @@ else
 {
     if (ViewBag.searchedProduct.ToLower() == "tv")
     {
-        <h1 >Displaying results for @ViewBag.searchedProduct.</h1>
-        
+        <h1>Displaying results for @ViewBag.searchedProduct</h1>
+
         <a class="nav-link text-dark" asp-area="" asp-controller="TV" asp-action="Index">Avalible Products</a>
-        
+
     }
     else
     {

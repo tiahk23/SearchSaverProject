@@ -22,6 +22,7 @@ namespace SearchSaver.Controllers
         public IActionResult Index()
         {
             List<Product> products = context.Products.ToList();
+            context.SaveChanges();
             return View(products);
         }
 
@@ -44,7 +45,6 @@ namespace SearchSaver.Controllers
                     Category = addProdutViewModel.Category,
                     Price = addProdutViewModel.Price,
                     Description = addProdutViewModel.Description
-                    //Id = addProdutViewModel.Id
                 };
                 context.Products.Add(newProduct);
                 context.SaveChanges();
