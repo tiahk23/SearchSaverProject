@@ -26,12 +26,7 @@ namespace SearchSaver.Controllers
             return View(searches);
         }
 
-        [HttpGet]
-        public IActionResult Add()
-        {
-            AddSearchViewModel addSearchViewModel = new AddSearchViewModel();
-            return View(addSearchViewModel);
-        }
+       
 
         [HttpPost]
         [Route("/search")]

@@ -10,7 +10,7 @@ namespace SearchSaver.Models
         public string SearchQuery { get; set; }
         //private DateTime DateandTime { get; set; }
 
-        public int SearchID { get; set; }
+        public int Id { get; set; }
         public Search()
         {
         }
@@ -27,12 +27,12 @@ namespace SearchSaver.Models
         public override bool Equals(object obj)
         {
             return obj is Search @search &&
-                   SearchID == @search.SearchID;
+                   Id == @search.Id;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(SearchID);
+            return HashCode.Combine(Id);
         }
     }
 }
