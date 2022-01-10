@@ -30,6 +30,7 @@ namespace SearchSaver.Controllers
         [Route("/search")]
         public IActionResult Results(Product newProduct, Search newSearch)
         {
+            ///ToDo: add a foreach loop to display specific products
             ViewBag.searchedProduct = newSearch;
             if (newProduct.Category == newSearch.ToString())
             {
@@ -41,14 +42,6 @@ namespace SearchSaver.Controllers
             }
             
         }
-
-        /*public IActionResult Delete()
-        {
-            ViewBag.searches = SearchData.GetAll();
-            Search newSearch = context.Searches.Find();
-            context.Products.Remove(newProduct);
-            return View();
-        }*/
 
     }
 }

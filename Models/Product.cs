@@ -30,5 +30,21 @@ namespace SearchSaver.Models
         {
             return Brand;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Product product &&
+                   Store == product.Store &&
+                   Description == product.Description &&
+                   Price == product.Price &&
+                   Brand == product.Brand &&
+                   Category == product.Category &&
+                   Id == product.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Store, Description, Price, Brand, Category, Id);
+        }
     }
 }

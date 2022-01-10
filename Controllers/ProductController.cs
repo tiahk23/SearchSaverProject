@@ -44,9 +44,10 @@ namespace SearchSaver.Controllers
                     Category = addProdutViewModel.Category,
                     Price = addProdutViewModel.Price,
                     Description = addProdutViewModel.Description
+                    //Id = addProdutViewModel.Id
                 };
                 context.Products.Add(newProduct);
-
+                context.SaveChanges();
                 return Redirect("/Product");
             }
             return View(addProdutViewModel);
@@ -59,10 +60,14 @@ namespace SearchSaver.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int[] productIds)
+        public IActionResult Delete(int[] Id)
         {
+            if (Id is null)
+            {
+                throw new ArgumentNullException(nameof(Id));
+            }
 
-            foreach(var productId in productIds)
+            foreach (var productId in Id)
             {
                 Product newProduct = context.Products.Find(productId);
                 context.Products.Remove(newProduct);

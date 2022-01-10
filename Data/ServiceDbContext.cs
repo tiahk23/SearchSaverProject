@@ -16,5 +16,6 @@ namespace SearchSaver.Data
             : base(options)
         {
         }
-    }
+    
+}
 }
