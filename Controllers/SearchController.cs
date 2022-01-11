@@ -21,9 +21,11 @@ namespace SearchSaver.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            List<Search> searches = context.Searches.ToList();
+            /*List<Search> searches = context.Searches.ToList();
             context.SaveChanges();
-            return View(searches);
+            return View(searches);*/
+            AddSearchViewModel addSearchViewModel = new AddSearchViewModel();
+            return View(addSearchViewModel);
         }
 
        
@@ -32,6 +34,7 @@ namespace SearchSaver.Controllers
         [Route("/search")]
         public IActionResult Results(AddSearchViewModel addSearchViewModel)
         {
+
             if (ModelState.IsValid)
             {
                 Search newSearch = new Search
@@ -40,10 +43,10 @@ namespace SearchSaver.Controllers
                 };
                 context.Searches.Add(newSearch);
                 context.SaveChanges();
+                
                 return Redirect("/Product");
             }
             return View(addSearchViewModel);
-            
         }
 
     }
