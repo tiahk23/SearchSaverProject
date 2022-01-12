@@ -29,28 +29,28 @@ namespace SearchSaver.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            AddProductViewModel addProdutViewModel = new AddProductViewModel();
-            return View(addProdutViewModel);
+            AddProductViewModel addProductViewModel = new AddProductViewModel();
+            return View(addProductViewModel);
         }
 
         [HttpPost]
-        public IActionResult Add(AddProductViewModel addProdutViewModel)
+        public IActionResult Add(AddProductViewModel addProductViewModel)
         {
             if (ModelState.IsValid)
             {
                 Product newProduct = new Product
                 {
-                    Store = addProdutViewModel.Store,
-                    Brand = addProdutViewModel.Brand,
-                    Category = addProdutViewModel.Category,
-                    Price = addProdutViewModel.Price,
-                    Description = addProdutViewModel.Description
+                    Store = addProductViewModel.Store,
+                    Brand = addProductViewModel.Brand,
+                    Category = addProductViewModel.Category,
+                    Price = addProductViewModel.Price,
+                    Description = addProductViewModel.Description
                 };
                 context.Products.Add(newProduct);
                 context.SaveChanges();
                 return Redirect("/Product");
             }
-            return View(addProdutViewModel);
+            return View(addProductViewModel);
         }
 
         public IActionResult Delete()
@@ -74,6 +74,20 @@ namespace SearchSaver.Controllers
             }
             context.SaveChanges();
             return Redirect("/Product");
+        }
+        [HttpPost]
+        public IActionResult Search()
+        {
+           
+            return Redirect("/Results");
+
+        }
+        [HttpGet]
+        public IActionResult Results()
+        {
+            List<Product> products = context.Products.ToList();
+            context.SaveChanges();
+            return View(products);
         }
     }
 }

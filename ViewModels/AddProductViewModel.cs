@@ -23,5 +23,5 @@ namespace SearchSaver.ViewModels
         [Required(ErrorMessage = "Category is required.")]
         public string Category { get; set; }
 
-}
+    }
 }

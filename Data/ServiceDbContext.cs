@@ -10,7 +10,6 @@ namespace SearchSaver.Data
     public class ServiceDbContext : IdentityDbContext
     {
         public DbSet<Product> Products { get; set; }
-        public DbSet<Search> Searches { get; set; }
 
         public ServiceDbContext(DbContextOptions<ServiceDbContext> options)
             : base(options)
