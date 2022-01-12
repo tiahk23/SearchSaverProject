@@ -9,8 +9,8 @@ using SearchSaver.Data;
 namespace SearchSaver.Migrations
 {
     [DbContext(typeof(ServiceDbContext))]
-    [Migration("20220110162802_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20220112151121_Initialmigration")]
+    partial class Initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -239,20 +239,6 @@ namespace SearchSaver.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("SearchSaver.Models.Search", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("SearchQuery")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Searches");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

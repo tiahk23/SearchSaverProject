@@ -53,9 +53,23 @@ namespace SearchSaver.Controllers
             return View(addProductViewModel);
         }
 
+        [HttpGet]
+        public IActionResult Search()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Results()
+        {
+            List<Product> products = context.Products.ToList();
+            context.SaveChanges();
+            return View(products);
+        }
+
         public IActionResult Delete()
         {
             ViewBag.products = context.Products.ToList();
+            context.SaveChanges();
             return View();
         }
 
@@ -75,19 +89,6 @@ namespace SearchSaver.Controllers
             context.SaveChanges();
             return Redirect("/Product");
         }
-        [HttpPost]
-        public IActionResult Search()
-        {
-           
-            return Redirect("/Results");
-
-        }
-        [HttpGet]
-        public IActionResult Results()
-        {
-            List<Product> products = context.Products.ToList();
-            context.SaveChanges();
-            return View(products);
-        }
+        
     }
 }
