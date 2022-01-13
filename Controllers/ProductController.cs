@@ -59,7 +59,7 @@ namespace SearchSaver.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Results()
+        public IActionResult Results(string search)
         {
             List<Product> products = context.Products.ToList();
             context.SaveChanges();
