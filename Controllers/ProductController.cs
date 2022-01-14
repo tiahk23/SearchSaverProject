@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SearchSaver.Data;
 using SearchSaver.Models;
 using SearchSaver.ViewModels;
@@ -59,10 +60,10 @@ namespace SearchSaver.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Results(string search)
+        public IActionResult Results(string searchTerm)
         {
-            List<Product> products = context.Products.ToList();
-            context.SaveChanges();
+
+            List<Product> products = context.Products.Where(p => p.Category == searchTerm).ToList();
             return View(products);
         }
 
@@ -89,6 +90,6 @@ namespace SearchSaver.Controllers
             context.SaveChanges();
             return Redirect("/Product");
         }
-        
+
     }
 }

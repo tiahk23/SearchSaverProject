@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SearchSaver.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace SearchSaver.Data
@@ -15,6 +16,6 @@ namespace SearchSaver.Data
             : base(options)
         {
         }
-    
-}
+
+    }
 }
