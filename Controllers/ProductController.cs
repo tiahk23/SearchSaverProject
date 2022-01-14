@@ -62,9 +62,16 @@ namespace SearchSaver.Controllers
         [HttpGet]
         public IActionResult Results(string searchTerm)
         {
+            if (searchTerm == null || searchTerm == "")
+            {
 
-            List<Product> products = context.Products.Where(p => p.Category == searchTerm).ToList();
-            return View(products);
+                return Redirect("/Product");
+            }
+            else
+            {
+                List<Product> products = context.Products.Where(p => p.Category == searchTerm).ToList();
+                return View(products);
+            }
         }
 
         public IActionResult Delete()
