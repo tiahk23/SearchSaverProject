@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SearchSaver.Models;
 using System;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace SearchSaver.Data
 {
-    public class ServiceDbContext : IdentityDbContext
+    public class ServiceDbContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<Product> Products { get; set; }
 
@@ -16,6 +17,11 @@ namespace SearchSaver.Data
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>().HasKey(et => new { et.Id });
 
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
